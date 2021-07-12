@@ -1,10 +1,10 @@
-ID: express-ts-btp-api
+ID: <%= name %>
 _schema-version: "3.1"
 version: 1.0.0
 
 modules:
   ######### App Router ##########################
-  - name: express-ts-btp-api-router
+  - name: <%= name %>-router
     type: approuter.nodejs
     path: router
     build-parameters:
@@ -18,19 +18,19 @@ modules:
       disk-quota: 200M
       memory: 100M
     properties:
-      TENANT_HOST_PATTERN: "^(.*)-(.*)-express-ts-btp-api-router.cfapps.(.*).hana.ondemand.com"
+      TENANT_HOST_PATTERN: "^(.*)-(.*)-<%= name %>-router.cfapps.(.*).hana.ondemand.com"
     requires:
-      - name: express-ts-btp-api-uaa
-      - name: express-ts-btp-api-dest
-      - name: express-ts-btp-api-srv
+      - name: <%= name %>-uaa
+      - name: <%= name %>-dest
+      - name: <%= name %>-srv
         group: destinations
         properties:
-          name: express-ts-btp-api-service
+          name: <%= name %>-service
           url: ~{url}
           forwardAuthToken: true
 
 ######### Service ##########################
-  - name: express-ts-btp-api-service
+  - name: <%= name %>-service
     type: nodejs
     path: srv
     build-parameters:
@@ -51,23 +51,23 @@ modules:
       disk-quota: 200M
       memory: 100M
     provides:
-      - name: express-ts-btp-api-srv
+      - name: <%= name %>-srv
         properties:
           url: ${default-url}
     requires:
-      - name: express-ts-btp-api-uaa
-      - name: express-ts-btp-api-dest
+      - name: <%= name %>-uaa
+      - name: <%= name %>-dest
 
 resources:
 ######### Destination Service ##########################      
-  - name: express-ts-btp-api-dest
+  - name: <%= name %>-dest
     type: org.cloudfoundry.managed-service
     parameters:
       service-plan: lite
       service: destination
 
 ######### UAA Service #################################
-  - name: express-ts-btp-api-uaa
+  - name: <%= name %>-uaa
     type: org.cloudfoundry.managed-service
     parameters:
       path: ./xs-security.json

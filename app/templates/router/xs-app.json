@@ -10,7 +10,7 @@
         "target": "$1",
         "authenticationType": "xsuaa",
         "scope": "uaa.user",
-        "destination": "express-ts-btp-api-service"
+        "destination": "<%= name %>-service"
       },
       {
         "source": "^/(.*)",

@@ -6,7 +6,7 @@ const path = require('path');
 module.exports = class extends Generator {
 
     async prompting() {
-        const answers = await this.prompt([
+        this.answers = await this.prompt([
           {
             type: "input",
             name: "name",
@@ -14,15 +14,31 @@ module.exports = class extends Generator {
             default: this.appname // Default to current folder name
           },
           {
-            type: "confirm",
-            name: "cool",
-            message: "Would you like to enable the Cool feature?"
-          }
+            type: "input",
+            name: "description",
+            message: "Project Description",
+            default: ""
+          },
+          {
+            type: "input",
+            name: "author",
+            message: "Author?",
+            default: ""
+          },          
+          {
+            type: "input",
+            name: "version",
+            message: "Your Version",
+            default: "1.0.0"
+          }          
         ]);
-    
-        this.log("app name", answers.name);
-        this.log("cool feature", answers.cool);
+        //this.log("app name", answers.name);
+        //this.log("cool feature", answers.cool);
       }
+
+    async writing() {
+      this.fs.copyTpl(this.templatePath("**/*"), this.destinationPath(this.answers.name), this.answers);
+    }
 
 
 }

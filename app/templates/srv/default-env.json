@@ -1,7 +1,7 @@
 {
     "destinations": [
       {
-        "name": "express-ts-btp-api-service",
+        "name": "<%= name %>-service",
         "url": "http://localhost:3000",
         "forwardAuthToken": true
       }

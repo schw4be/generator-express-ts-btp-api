@@ -1,16 +1,13 @@
 {
-    "name": "express-ts-btp-api",
-    "version": "1.0.0",
-    "description": "",
-    "repository": {
-      "url": "https://github.com/schw4be/express-ts-btp-api"
-    },
+    "name": "<%= name %>",
+    "version": "<%= version %>",
+    "description": "<%= description %>",
     "keywords": [],
-    "author": "Markus Klein",
+    "author": "<%= author %>",
     "license": "ISC",
     "scripts": {
-      "build": "mbt build --mtar express-ts-btp-api.mtar",
-      "deploy": "cf deploy mta_archives/express-ts-btp-api.mtar"
+      "build": "mbt build --mtar <%= name %>.mtar",
+      "deploy": "cf deploy mta_archives/<%= name %>.mtar"
     },
     "devDependencies": {
       "cross-var": "^1.1.0",
