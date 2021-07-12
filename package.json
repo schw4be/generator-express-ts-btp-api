@@ -1,6 +1,7 @@
 {
   "name": "generator-express-ts-btp-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  
   "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,15 +10,22 @@
     "type": "git",
     "url": "https://github.com/schw4be/generator-express-ts-btp-api.git"
   },
-  "keywords": [],
+  "keywords": [
+    "yeoman-generator",
+    "SAP Business Technology Platform",
+    "Express",
+    "Typescript",
+    "API Server",
+    "CloudFoundry"
+  ],
   "author": "Markus Klein",
   "license": "ISC",
-  "description": "",
+  "description": "A Typescript based Express API Server running on the SAP Business Technology Platform with Authentication and Autheorication capabilities",
   "bugs": {
     "url": "https://github.com/schw4be/generator-express-ts-btp-api/issues"
   },
   "homepage": "https://github.com/schw4be/generator-express-ts-btp-api",
   "dependencies": {
-    "npm lin-generator": "^5.4.0"
+    "yeoman-generator": "^5.4.0"
   }
 }
