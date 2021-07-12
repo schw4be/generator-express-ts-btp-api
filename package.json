@@ -1,0 +1,23 @@
+{
+    "name": "generator-express-ts-btp-api",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/schw4be/generator-express-ts-btp-api.git"
+    },
+    "keywords": [],
+    "author": "Markus Klein",
+    "license": "ISC",
+    "description": "",
+    "bugs": {
+      "url": "https://github.com/schw4be/generator-express-ts-btp-api/issues"
+    },
+    "homepage": "https://github.com/schw4be/generator-express-ts-btp-api",
+    "dependencies": {
+      "yeoman-generator": "^5.4.0"
+    }
+  }
