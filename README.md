@@ -7,9 +7,8 @@
 - [MBT Build Tool](https://sap.github.io/cloud-mta-build-tool/)
 
 # Installation
-Install Yeoman: `npm install -g yo` 
-
-`npm i yo express-ts-btp-api`
+- `npm i -g yo` 
+- `npm i -g generator-express-ts-btp-api`
 
 ## Configuration
 Variables:
