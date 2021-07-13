@@ -38,6 +38,12 @@ module.exports = class extends Generator {
             default: true
           },
           {
+            type: "input",
+            name: "version",
+            message: "Your Version",
+            default: "to_be_replaced"
+          },          
+          {
             type: 'list',
             name: 'command',
             message: `Post Processing: Build or Install`,
