@@ -69,7 +69,7 @@ module.exports = class extends Generator {
       this.fs.copyTpl(this.templatePath("**/**"), this.destinationPath(this.answers.name), this.answers, copyOpts);
 
       const files = [
-        '.gitignore',
+        //'.gitignore',
         'srv/.eslintignore',
         'srv/.eslintrc.yml',
         'srv/.prettierignore',
