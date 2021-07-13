@@ -13,7 +13,8 @@ modules:
         - default-services.json
         - default-env.json
       builder: custom
-      commands: []
+      commands: 
+        - npm install
     parameters:
       disk-quota: 200M
       memory: 100M

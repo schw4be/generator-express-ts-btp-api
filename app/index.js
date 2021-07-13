@@ -30,10 +30,20 @@ module.exports = class extends Generator {
             name: "version",
             message: "Your Version",
             default: "1.0.0"
-          }          
+          },
+          {
+            type: 'list',
+            name: 'command',
+            message: `Post Processing: Build or Install`,
+            choices: [
+              { name: 'Installation', value: 'inst' },
+              { name: 'MBT Build', value: 'build' },
+              { name: 'None', value: 'none' },
+            ],
+            default: 'none'
+          }
+                    
         ]);
-        //this.log("app name", answers.name);
-        //this.log("cool feature", answers.cool);
       }
 
     async writing() {
@@ -44,26 +54,15 @@ module.exports = class extends Generator {
         },
       }
 
-      //this.fs.copyTpl(this.templatePath("**/**"), this.destinationPath(this.answers.name), this.answers, copyOpts);
+      this.fs.copyTpl(this.templatePath("**/**"), this.destinationPath(this.answers.name), this.answers, copyOpts);
 
-      /*const files = [
+      const files = [
         '.gitignore',
         'srv/.eslintignore',
         'srv/.eslintrc.yml',
         'srv/.prettierignore',
         'srv/.prettierrc.yaml',
-        '.vscode/'
-      ]; */   
-
-      const files = [
-        '.gitignore',
-        'srv/',
-        'srv/.eslintignore',
-        'srv/.eslintrc.yml',
-        'srv/.prettierignore',
-        'srv/.prettierrc.yaml',        
-        'router/',
-        '.vscode/'
+        '.vscode/',
       ];         
 
       files.forEach(f => {
@@ -75,6 +74,23 @@ module.exports = class extends Generator {
         );
       });
       
+    }
+
+    async install() {
+      const opt = { "cwd": this.destinationPath(this.answers.name) };
+      if (this.answers.command == 'build') {
+        console.log('Running Build ... 🖨️');
+        this.spawnCommandSync("npm", ["run", "build"], opt);
+      } else if (this.answers.command == 'inst') {
+        console.log('Running Installation ... 🗄️');
+        this.spawnCommandSync("npm", ["run", "install"], opt);
+      } else {
+        console.log('No Post Processing ... 🪢');
+      }
+    }
+
+    async end() {
+      console.log('Well done! 🥳🎉');
     }
 
 

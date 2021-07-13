@@ -7,7 +7,8 @@
     "license": "ISC",
     "scripts": {
       "build": "mbt build --mtar <%= name %>.mtar",
-      "deploy": "cf deploy mta_archives/<%= name %>.mtar"
+      "deploy": "cf deploy mta_archives/<%= name %>.mtar",
+      "install": "npm i --prefix srv && npm i --prefix router"
     },
     "devDependencies": {
       "cross-var": "^1.1.0",
