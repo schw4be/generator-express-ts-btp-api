@@ -37,7 +37,44 @@ module.exports = class extends Generator {
       }
 
     async writing() {
-      this.fs.copyTpl(this.templatePath("**/*"), this.destinationPath(this.answers.name), this.answers);
+
+      const copyOpts = {
+        globOptions: {
+          ignore: [],
+        },
+      }
+
+      //this.fs.copyTpl(this.templatePath("**/**"), this.destinationPath(this.answers.name), this.answers, copyOpts);
+
+      /*const files = [
+        '.gitignore',
+        'srv/.eslintignore',
+        'srv/.eslintrc.yml',
+        'srv/.prettierignore',
+        'srv/.prettierrc.yaml',
+        '.vscode/'
+      ]; */   
+
+      const files = [
+        '.gitignore',
+        'srv/',
+        'srv/.eslintignore',
+        'srv/.eslintrc.yml',
+        'srv/.prettierignore',
+        'srv/.prettierrc.yaml',        
+        'router/',
+        '.vscode/'
+      ];         
+
+      files.forEach(f => {
+        this.fs.copyTpl(
+          this.templatePath(f),
+          this.destinationPath(`${this.answers.name}/${f}`),
+          this.answers,
+          copyOpts
+        );
+      });
+      
     }
 
 
