@@ -46,6 +46,7 @@ modules:
       builder: custom
       commands:
         - npm install
+        - npm run format
         - npm run lint
         - npm run build
     parameters:
