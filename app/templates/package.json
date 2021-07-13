@@ -6,9 +6,12 @@
     "author": "<%= author %>",
     "license": "ISC",
     "scripts": {
+      "serve": "npm-run-all --parallel serve:*",
+      "serve:service": "npm run dev --prefix srv",
+      "serve:router": "npm run start --prefix router",
+      "inst": "npm i && npm i --prefix srv && npm i --prefix router",
       "build": "mbt build --mtar <%= name %>.mtar",
-      "deploy": "cf deploy mta_archives/<%= name %>.mtar",
-      "install": "npm i --prefix srv && npm i --prefix router"
+      "deploy": "cf deploy mta_archives/<%= name %>.mtar"
     },
     "devDependencies": {
       "cross-var": "^1.1.0",

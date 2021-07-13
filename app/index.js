@@ -89,7 +89,7 @@ module.exports = class extends Generator {
         this.spawnCommandSync("npm", ["run", "build"], opt);
       } else if (this.answers.command == 'inst') {
         console.log('Running Installation ... 🗄️');
-        this.spawnCommandSync("npm", ["run", "install"], opt);
+        this.spawnCommandSync("npm", ["run", "inst"], opt);
       } else {
         console.log('No Post Processing ... 🪢');
       }
