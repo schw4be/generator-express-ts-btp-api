@@ -32,6 +32,12 @@ module.exports = class extends Generator {
             default: "1.0.0"
           },
           {
+            type: "confirm",
+            name: "authentication",
+            message: "Would you like authentication?",
+            default: true
+          },
+          {
             type: 'list',
             name: 'command',
             message: `Post Processing: Build or Install`,

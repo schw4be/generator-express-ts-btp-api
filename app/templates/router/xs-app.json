@@ -1,6 +1,10 @@
 {
     "welcomeFile": "index.html",
+  <% if(authentication){ -%>
     "authenticationMethod": "route",
+  <% } else { -%>
+    "authenticationMethod": "none",
+  <% } -%>
     "logout": {
       "logoutEndpoint": "/do/logout"
     },
@@ -8,13 +12,17 @@
       {
         "source": "^/api/v1/(.*)$",
         "target": "$1",
+      <% if(authentication){ -%>
         "authenticationType": "xsuaa",
+      <% } -%>
         "scope": "uaa.user",
         "destination": "<%= name %>-service"
       },
       {
         "source": "^/(.*)",
+      <% if(authentication){ -%>
         "authenticationType": "xsuaa",
+      <% } -%>
         "scope": "uaa.user",
         "localDir": "public"
       }
